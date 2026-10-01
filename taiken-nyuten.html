@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>体験入店お申し込み | CLUB ROYAL ROSE</title>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Noto+Serif+JP:wght@600;900&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#ff1493; --hot:#ff2fa8; --gold:#ffd54a; --gold2:#b8860b;
+  --purple:#6a0dad; --black:#0a0010; --white:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  min-height:100vh;
+  font-family:"Noto Serif JP","Hiragino Mincho ProN",serif;
+  color:var(--white);
+  background:
+    radial-gradient(circle at 15% 10%,rgba(255,20,147,.55),transparent 40%),
+    radial-gradient(circle at 85% 30%,rgba(106,13,173,.7),transparent 45%),
+    radial-gradient(circle at 50% 100%,rgba(255,213,74,.25),transparent 50%),
+    repeating-linear-gradient(45deg,#0a0010 0 14px,#14001f 14px 28px);
+  overflow-x:hidden;
+}
+/* sparkles */
+body::before,body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px,#fff,transparent),
+    radial-gradient(3px 3px at 90px 120px,var(--gold),transparent),
+    radial-gradient(2px 2px at 160px 60px,#ff9be0,transparent),
+    radial-gradient(3px 3px at 220px 180px,#fff,transparent),
+    radial-gradient(2px 2px at 300px 90px,var(--gold),transparent);
+  background-size:320px 220px;
+  animation:twinkle 2.4s infinite alternate;
+}
+body::after{background-size:260px 300px;animation-delay:1.2s;opacity:.7}
+@keyframes twinkle{from{opacity:.2}to{opacity:1}}
+
+.wrap{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:28px 16px 60px}
+
+/* header */
+.crown{text-align:center;font-size:44px;filter:drop-shadow(0 0 12px var(--gold));animation:float 3s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-6px)}}
+.script{
+  text-align:center;font-family:"Pinyon Script",cursive;font-size:30px;
+  color:var(--gold);text-shadow:0 0 10px var(--gold),0 0 24px var(--pink);
+}
+h1{
+  text-align:center;font-family:"Dela Gothic One","Noto Serif JP",sans-serif;
+  font-size:clamp(30px,9vw,52px);line-height:1.25;margin:6px 0 10px;
+  background:linear-gradient(180deg,#fff 0%,#ffe27a 40%,#ff5cc0 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 8px rgba(255,20,147,.9)) drop-shadow(2px 3px 0 #6a0dad);
+}
+.tag{
+  display:block;width:fit-content;margin:12px auto;padding:6px 18px;
+  background:linear-gradient(90deg,var(--pink),var(--purple));
+  border:2px solid var(--gold);border-radius:999px;
+  font-weight:900;letter-spacing:.15em;font-size:14px;
+  box-shadow:0 0 18px var(--pink);
+}
+.lead{text-align:center;font-size:14px;line-height:1.9;color:#ffd6f0;margin-bottom:22px}
+.lead b{color:var(--gold);font-size:16px}
+
+/* benefit badges */
+.badges{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:26px}
+.badge{
+  text-align:center;padding:12px 4px;border-radius:14px;
+  background:linear-gradient(160deg,rgba(255,20,147,.35),rgba(106,13,173,.35));
+  border:1px solid var(--gold);box-shadow:inset 0 0 14px rgba(255,213,74,.35),0 0 12px rgba(255,20,147,.5);
+  font-size:11px;font-weight:900;
+}
+.badge strong{display:block;font-family:"Dela Gothic One",sans-serif;font-size:19px;color:var(--gold);text-shadow:0 0 8px var(--pink);margin-top:2px}
+
+/* form card */
+form{
+  position:relative;padding:28px 20px 30px;border-radius:24px;
+  background:linear-gradient(180deg,rgba(20,0,32,.92),rgba(40,0,50,.92));
+  border:3px solid transparent;
+  background-clip:padding-box;
+  box-shadow:0 0 0 3px var(--gold),0 0 0 6px var(--pink),0 0 40px 8px rgba(255,20,147,.6);
+}
+form::before{
+  content:"✦ ENTRY FORM ✦";position:absolute;top:-16px;left:50%;transform:translateX(-50%);
+  background:linear-gradient(90deg,var(--gold2),var(--gold),var(--gold2));
+  color:#3b0030;font-weight:900;font-size:13px;letter-spacing:.2em;
+  padding:5px 20px;border-radius:999px;white-space:nowrap;
+  box-shadow:0 0 14px var(--gold);
+}
+.field{margin-bottom:22px}
+label.l,.l{
+  display:flex;align-items:center;gap:8px;margin-bottom:8px;
+  font-weight:900;font-size:15px;color:var(--gold);text-shadow:0 0 6px rgba(255,20,147,.8);
+}
+.req{
+  background:var(--pink);color:#fff;font-size:10px;padding:2px 8px;border-radius:999px;
+  box-shadow:0 0 8px var(--pink);text-shadow:none;
+}
+.opt{background:#555;color:#fff;font-size:10px;padding:2px 8px;border-radius:999px;text-shadow:none}
+input[type=text],input[type=tel],input[type=email],input[type=number],input[type=date],select,textarea{
+  width:100%;padding:13px 14px;font:inherit;font-size:16px;color:#fff;
+  background:rgba(255,255,255,.08);
+  border:2px solid #ff7cd0;border-radius:12px;outline:none;
+  box-shadow:inset 0 0 10px rgba(255,20,147,.25);
+  transition:.2s;
+}
+select option{color:#000}
+input::placeholder,textarea::placeholder{color:#c79ab8}
+input:focus,select:focus,textarea:focus{
+  border-color:var(--gold);background:rgba(255,255,255,.14);
+  box-shadow:0 0 0 3px rgba(255,213,74,.4),0 0 18px var(--pink);
+}
+textarea{min-height:110px;resize:vertical}
+input[type=date]{color-scheme:dark}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:480px){.row{grid-template-columns:1fr}}
+
+/* radio / checkbox chips */
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips label{
+  padding:10px 16px;border-radius:999px;cursor:pointer;font-weight:900;font-size:14px;
+  border:2px solid #ff7cd0;background:rgba(255,255,255,.06);transition:.2s;
+}
+.chips input:checked+label{
+  background:linear-gradient(90deg,var(--pink),#ff6ad5);
+  border-color:var(--gold);box-shadow:0 0 16px var(--pink);
+  transform:scale(1.05);
+}
+.chips input:focus-visible+label{outline:3px solid var(--gold)}
+
+.note{font-size:12px;color:#ffb3e3;margin-top:6px;line-height:1.7}
+
+/* agree */
+.agree{
+  display:flex;gap:10px;align-items:flex-start;padding:14px;border-radius:12px;
+  background:rgba(255,213,74,.08);border:1px dashed var(--gold);font-size:13px;line-height:1.7;
+}
+.agree input{width:22px;height:22px;accent-color:var(--pink);flex:none;margin-top:2px}
+
+/* submit */
+button{
+  position:relative;width:100%;margin-top:26px;padding:18px;border:3px solid var(--gold);border-radius:999px;
+  font-family:"Dela Gothic One","Noto Serif JP",sans-serif;font-size:21px;letter-spacing:.12em;color:#fff;cursor:pointer;
+  background:linear-gradient(90deg,#ff1493,#ff5cc8,#ff1493);background-size:200% 100%;
+  text-shadow:0 2px 0 #6a0dad,0 0 12px #fff;
+  box-shadow:0 6px 0 #8a0a5a,0 0 30px var(--pink);
+  animation:shine 2.5s linear infinite,pulse 1.6s ease-in-out infinite;
+  overflow:hidden;
+}
+button::after{
+  content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.7),transparent);
+  transform:skewX(-20deg);animation:sweep 2.2s infinite;
+}
+button:active{transform:translateY(5px);box-shadow:0 1px 0 #8a0a5a,0 0 30px var(--pink)}
+@keyframes shine{to{background-position:200% 0}}
+@keyframes pulse{50%{filter:brightness(1.2)}}
+@keyframes sweep{to{left:130%}}
+
+.foot{text-align:center;margin-top:28px;font-size:12px;color:#d9a5c9;line-height:1.9}
+.foot .tel{font-family:"Dela Gothic One",sans-serif;font-size:22px;color:var(--gold);text-shadow:0 0 10px var(--pink);display:block}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(10,0,16,.82);backdrop-filter:blur(4px)}
+.modal.show{display:flex;animation:fadein .3s}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.mbox{position:relative;width:100%;max-width:420px;text-align:center;padding:36px 22px 26px;border-radius:26px;
+  background:linear-gradient(180deg,#2a0036,#14001f);
+  box-shadow:0 0 0 3px var(--gold),0 0 0 6px var(--pink),0 0 50px 10px rgba(255,20,147,.7);
+  animation:pop .5s cubic-bezier(.2,1.6,.4,1)}
+@keyframes pop{from{transform:scale(.5);opacity:0}to{transform:scale(1);opacity:1}}
+.mbox .mc{font-size:54px;filter:drop-shadow(0 0 14px var(--gold));animation:float 2.4s ease-in-out infinite}
+.mbox h2{font-family:"Dela Gothic One","Noto Serif JP",sans-serif;font-size:30px;margin:6px 0 12px;
+  background:linear-gradient(180deg,#fff,#ffe27a 50%,#ff5cc0);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 8px rgba(255,20,147,.9))}
+.mbox p{font-size:14px;line-height:1.9;color:#ffd6f0}
+.mbox p b{color:var(--gold)}
+.mbox .close{margin-top:22px;font-size:17px;padding:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="crown">👑</div>
+  <div class="script">Club Royal Rose</div>
+  <h1>体験入店<br>お申し込み</h1>
+  <span class="tag">♛ 未経験大歓迎 ♛</span>
+  <p class="lead">
+    <b>今夜、あなたが主役になる。</b><br>
+    ご希望の日時を入力して送信するだけ。<br>
+    スタッフから<b>24時間以内</b>にご連絡します✨
+  </p>
+
+  <div class="badges">
+    <div class="badge">体験時給<strong>¥4,000~</strong></div>
+    <div class="badge">当日<strong>即払い</strong></div>
+    <div class="badge">ドレス<strong>無料レンタル</strong></div>
+  </div>
+
+  <form>
+
+    <div class="field">
+      <label class="l" for="name">お名前 <span class="req">必須</span></label>
+      <input id="name" type="text" placeholder="例）山田 花子" required>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label class="l" for="genji">希望源氏名 <span class="opt">任意</span></label>
+        <input id="genji" type="text" placeholder="例）みく・れいな">
+      </div>
+      <div class="field">
+        <label class="l" for="age">年齢 <span class="req">必須</span></label>
+        <input id="age" type="number" min="18" max="60" placeholder="18歳以上" required>
+      </div>
+    </div>
+    <p class="note" style="margin:-12px 0 22px">※18歳未満（高校生含む）はご応募いただけません。</p>
+
+    <div class="row">
+      <div class="field">
+        <label class="l" for="tel">電話番号 <span class="req">必須</span></label>
+        <input id="tel" type="tel" placeholder="090-0000-0000" required>
+      </div>
+      <div class="field">
+        <label class="l" for="line">LINE ID <span class="opt">任意</span></label>
+        <input id="line" type="text" placeholder="LINEで連絡希望の方">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="l" for="mail">メールアドレス <span class="opt">任意</span></label>
+      <input id="mail" type="email" placeholder="example@mail.com">
+    </div>
+
+    <div class="field">
+      <span class="l">お仕事のご経験 <span class="req">必須</span></span>
+      <div class="chips">
+        <input type="radio" name="exp" id="e1" checked><label for="e1">💖 未経験</label>
+        <input type="radio" name="exp" id="e2"><label for="e2">💎 経験あり</label>
+        <input type="radio" name="exp" id="e3"><label for="e3">🥂 他店勤務中</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label class="l" for="date">体験希望日 <span class="req">必須</span></label>
+        <input id="date" type="date" required>
+      </div>
+      <div class="field">
+        <label class="l" for="time">希望時間帯 <span class="req">必須</span></label>
+        <select id="time" required>
+          <option value="">選んでね</option>
+          <option>20:00〜</option>
+          <option>21:00〜</option>
+          <option>22:00〜</option>
+          <option>23:00〜</option>
+          <option>相談したい</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <span class="l">希望の働き方 <span class="opt">任意</span></span>
+      <div class="chips">
+        <input type="radio" name="work" id="w1"><label for="w1">週1〜2</label>
+        <input type="radio" name="work" id="w2"><label for="w2">週3〜4</label>
+        <input type="radio" name="work" id="w3"><label for="w3">週5〜</label>
+        <input type="radio" name="work" id="w4" checked><label for="w4">まず体験から</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <span class="l">ご希望・ご要望 <span class="opt">複数OK</span></span>
+      <div class="chips">
+        <input type="checkbox" id="c1"><label for="c1">👗 ドレス借りたい</label>
+        <input type="checkbox" id="c2"><label for="c2">💇 ヘアメイクあり</label>
+        <input type="checkbox" id="c3"><label for="c3">🚗 送迎希望</label>
+        <input type="checkbox" id="c4"><label for="c4">👯 友達と体験</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="l" for="msg">ご質問・メッセージ <span class="opt">任意</span></label>
+      <textarea id="msg" placeholder="お酒が弱い／終電までに帰りたい／ノルマが不安…など、なんでもどうぞ♡"></textarea>
+      <p class="note">※当日は顔写真付きの身分証明書をご持参ください。</p>
+    </div>
+
+    <label class="agree">
+      <input type="checkbox" required>
+      <span>身分証の提示と、個人情報の取り扱いに同意します。入力内容は体験入店のご連絡以外には使用しません。</span>
+    </label>
+
+    <button type="submit">♛ 体験入店を申し込む ♛</button>
+  </form>
+
+  <div class="foot">
+    お急ぎの方はお電話でもOK！
+    <span class="tel">☎ 000-0000-0000</span>
+    受付 18:00〜26:00 ／ 年中無休
+  </div>
+</div>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mt">
+  <div class="mbox">
+    <div class="mc">💖👑💖</div>
+    <h2 id="mt">受付しました！</h2>
+    <p>体験入店のお申し込み<br>ありがとうございます♡<br>
+    スタッフより<b>24時間以内</b>にご連絡いたします。<br>
+    当日は<b>身分証</b>をお忘れなく✨</p>
+    <button type="button" class="close" id="closeBtn">閉じる</button>
+  </div>
+</div>
+<script>
+const modal=document.getElementById('modal'),form=document.querySelector('form');
+form.addEventListener('submit',e=>{e.preventDefault();modal.classList.add('show');});
+function closeModal(){modal.classList.remove('show');form.reset();}
+document.getElementById('closeBtn').addEventListener('click',closeModal);
+modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+</script>
+</body>
+</html>
